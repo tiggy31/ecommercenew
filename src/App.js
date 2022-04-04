@@ -13,6 +13,7 @@ import Canceled from './Components/checkout/cancelled'
 function App() {
   return (
     <div className="App">
+  
       <Switch>
         <Route exact path = '/' component = {Home}/>
         <Route path = '/item/:id' component = {singleProduct}/>
@@ -22,7 +23,7 @@ function App() {
         <Route path = '/success' component = {Success} />
         <Route path = '/canceled'component = {Canceled} />
         <Route path = '*' component = {NotFound}/>
-
+   
       </Switch>
     </div>
   );

@@ -6,13 +6,17 @@ import {cartContext} from '../../context/cart-context'
 
 
 const Featured = (props) => {
-
+  
     const {addProduct,cartItems, increaseFunction} = useContext(cartContext)
     const {title, imageUrl, price, history, id,description } = props
     const product = {title, imageUrl, price, id,description}
     const itemInCart = isInCart(product,cartItems)
+
+
+    
    return(
        <div className= "featured-product">
+          
            <div className = "featured-image" onClick = {() => history.push(`/item/${id}`)}>
                <img src = {imageUrl} alt = "product"/>
            </div>
