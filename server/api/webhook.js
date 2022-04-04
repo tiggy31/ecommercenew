@@ -1,16 +1,16 @@
 const stripeAPI = require('../stripe');
 
-const webHookHandlers = {
+const webHookHandlers =  {
   'checkout.session.completed': (data) => {
-    console.log('Checkout completed successfully', data);
-    // other business logic
+   console.log('Checkout completed successfully',data)
+   //other business logic
   },
 
   'payment_intent.succeeded': (data) => {
-    console.log('Payment succeeded', data);
+    console.log('Payment succedded', data)
   },
   'payment_intent.payment_failed': (data) => {
-    console.log('Payment Failed', data);
+     console.log('Payemnt failed', data)
   }
 }
 
