@@ -7,7 +7,7 @@ import ProductContextProvider from './context/products-context'
 import CartContextProvider from './context/cart-context'
 import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js'
-
+import UserContext from './context/user-context'
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHIBLE_KEY)
 
 ReactDom.render(
@@ -15,7 +15,9 @@ ReactDom.render(
  <ProductContextProvider>
     <CartContextProvider>
        <Elements stripe = {stripePromise}>
-           <App />
+          <UserContext>
+          <App />
+          </UserContext>
        </Elements>
     </CartContextProvider>
     </ProductContextProvider>

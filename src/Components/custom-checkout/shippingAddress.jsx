@@ -12,7 +12,7 @@ const validate = values => {
 
     return errors
 }
-const ShippingAddress = () => {
+const ShippingAddress = ({setShipping}) => {
    const initialValues = {
        email: '',
        name: '',
@@ -27,11 +27,12 @@ const ShippingAddress = () => {
             validate= {validate}
            onSubmit  = {(values) => {
               console.log('values',values)
+              setShipping(values)
            }}
           >
               {
-                  ({values,error,handleChange,handleSubmit}) => {
-                      const {name,email,address} = error
+                  ({values,errors,handleChange,handleSubmit}) => {
+                      const {name,email,address} = errors
                        return (
                            <form onSubmit= {handleSubmit}>
                             <div>
@@ -40,6 +41,7 @@ const ShippingAddress = () => {
                                 name="name"
                                 onChange={handleChange}
                                 value = {values.name}
+                                placeholder="name"
                                 className = {'nomad-input' + (name ? 'error' : '')}
                                 />
                             </div>
@@ -50,6 +52,7 @@ const ShippingAddress = () => {
                                 name="email"
                                 onChange={handleChange}
                                 value = {values.email}
+                                placeholder="email"
                                 className = {'nomad-input' + (email ? 'error' : '')}
                                 />
                             </div>
@@ -60,6 +63,7 @@ const ShippingAddress = () => {
                                 name="address"
                                 onChange={handleChange}
                                 value = {values.address}
+                                placeholder="address"
                                 className = {'nomad-input' + (address ? 'error' : '')}
                                 />
                             </div>
